@@ -1,14 +1,2 @@
-on: push
-name: Run the AFK-Bot
-jobs:
-  join:
-    name: Join the server
-    runs-on: ubuntu-latest
-    steps:
-    - name: Start Afk-bot
-      uses: Minionguyjpro/Afk-bot@v1.0.3
-      with:
-        ip: vanillagiusse.aternos.me
-        name: STAFF
-        port: 23750
-        auto-night-skip: false
+- name: Minecraft AFK-Bot
+uses: Minionguyjpro/Afk-bot@v1.0.4
