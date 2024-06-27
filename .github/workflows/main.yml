@@ -1,31 +1,14 @@
-name: Run a test
-
-on:
-  push:
-  pull_request:
-
+on: push
+name: Run the AFK-Bot
 jobs:
- test:
-    runs-on: windows-latest
+  join:
+    name: Join the server
+    runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v3
-     - name: Create report file
-       run: date +%s > report.txt  
-
-     
-     - name: Minecraft AFKBot (push)
-       uses: Minionguyjpro/Afk-bot@master
-       with:
+    - name: Start Afk-bot
+      uses: Minionguyjpro/Afk-bot@v1.0.3
+      with:
         ip: vanillagiusse.aternos.me
         name: STAFF
         port: 23750
-       if: ${{ github.event_name != 'pull_request' }}
-       
-       
-     - name: Minecraft AFKBot (pull request)
-       uses: ./
-       with:
-        ip: vanillagiusse.aternos.me
-        name: BOTTEST
-        port: 23750
-       if: ${{ github.event_name == 'pull_request' }}
+        auto-night-skip: false
